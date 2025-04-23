@@ -43,7 +43,7 @@ bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
 
-   if (!text || startWith(text, '/')) return;
+  if (!text || text.startsWith('/')) return;
 
   
 
