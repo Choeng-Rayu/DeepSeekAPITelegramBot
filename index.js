@@ -32,18 +32,20 @@ app.post(`/bot${TELEGRAM_TOKEN}`, (req, res) => {
   res.sendStatus(200); // Respond to Telegram
 });
 
+//Handle /start command
+bot.onText(/\/start/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, "🤖 **Hello! I'm created by Rayu as an AI assistant.**\n\nSend me a message, and I'll help you!");
+});
+
 // ===== (3) Bot Message Handling =====
 bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
 
-  if (!text) return;
+   if (!text || startWith(text, '/')) return;
 
-  //Handle /start command
-  bot.onText(/\/start/, (msg) => {
-      const chatId = msg.chat.id;
-      bot.sendMessage(chatId, "🤖 **Hello! I'm created by Rayu as an AI assistant.**\n\nSend me a message, and I'll help you!");
-  });
+  
 
   try {
     await bot.sendChatAction(chatId, 'typing');
