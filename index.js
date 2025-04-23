@@ -37,7 +37,13 @@ bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
 
-  if (!text || text.startsWith('/')) return;
+  if (!text) return;
+
+  //Handle /start command
+  bot.onText(/\/start/, (msg) => {
+      const chatId = msg.chat.id;
+      bot.sendMessage(chatId, "🤖 **Hello! I'm created by Rayu as an AI assistant.**\n\nSend me a message, and I'll help you!");
+  });
 
   try {
     await bot.sendChatAction(chatId, 'typing');
