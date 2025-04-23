@@ -10,5 +10,16 @@
     "axios": "^1.8.4",
     "dotenv": "^16.5.0",
     "node-telegram-bot-api": "^0.66.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Choeng-Rayu/DeepSeekAPITelegramBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Choeng-Rayu/DeepSeekAPITelegramBot/issues"
+  },
+  "homepage": "https://github.com/Choeng-Rayu/DeepSeekAPITelegramBot#readme"
 }

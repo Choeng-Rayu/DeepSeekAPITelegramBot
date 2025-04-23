@@ -3,6 +3,26 @@ const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 const { streamDeepSeekResponse } = require('./stream');
 
+
+
+async function testAPIs() {
+    try {
+      await axios.get(`https://api.telegram.org/bot${telegramToken}/getMe`);
+      console.log("Telegram connection OK");
+      
+      await axios.post(deepseekApiUrl, 
+        { model: "deepseek-chat", messages: [{role:"user",content:"test"}] },
+        { headers: { Authorization: `Bearer ${deepseekApiKey}` } }
+      );
+      console.log("DeepSeek connection OK");
+    } catch (e) {
+      console.error("API test failed:", e.response?.data || e.message);
+      process.exit(1);
+    }
+  }
+  testAPIs();
+
+
 // Load environment variables
 const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
 const deepseekApiKey = process.env.DEEPSEEK_API_KEY;
@@ -135,7 +155,9 @@ bot.on('message', async (msg) => {
       history.splice(0, history.length - 10);
     }
   } catch (error) {
-    await bot.sendMessage(chatId, 'Sorry, something went wrong. Try again later!');
+    console.error("Full error:", error);
+    console.error("Response data:", error.response?.data);
+    await bot.sendMessage(chatId, `Error: ${error.message}`);
   }
 });
 
