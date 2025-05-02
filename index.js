@@ -35,7 +35,7 @@ app.post(`/bot${TELEGRAM_TOKEN}`, (req, res) => {
 //Handle /start command
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, "🤖 **Hello! I'm created by Rayu as an AI assistant.**\n\nSend me a message, and I'll help you!");
+  bot.sendMessage(chatId, "🤖 **Hello! I'm created by Rayu power by DeepSeek as an AI assistant for you.**\n\nI may respond slowly as I’m currently rendering on a small server. Thank you for your understanding—I truly appreciate your patience.");
 });
 
 // ===== (3) Bot Message Handling =====
