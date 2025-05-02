@@ -43,7 +43,7 @@ bot.on('message', async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text;
 
-  if (!text || text.startsWith('/')) return;
+  if (!text || text.startsWith('/')) return bot.sendMessage(chatId, 'Sorry I can not respond to commands or non-text messages.');
 
   
 
