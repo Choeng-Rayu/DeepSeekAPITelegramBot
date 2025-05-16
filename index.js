@@ -85,6 +85,9 @@ async function callDeepSeek(chatId, messages) {
     throw new Error('Failed to get AI response.');
   }
 }
+bot.getMe().then((me)=>{
+  console.log(`Bot ${me.username} is running`);
+});
 
 
 
