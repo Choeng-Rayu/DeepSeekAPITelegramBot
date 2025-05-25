@@ -265,7 +265,7 @@ const express = require('express');
 const axios = require('axios');
 
 // Load config from environment variables
-const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '7592873435:AAF6a9CeL_R4gLmRBz_-qd6gmeb2KY07UtU';
+const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 const PORT = process.env.PORT || 3000;
 const WEBHOOK_URL = process.env.WEBHOOK_URL || 'https://deepseekapitelegrambot.onrender.com';
